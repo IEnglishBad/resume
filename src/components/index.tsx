@@ -233,42 +233,6 @@ export const Page: React.FC = () => {
   return (
     <React.Fragment>
       <Spin spinning={loading}>
-        {mode === 'edit' && (
-          <Alert
-            showIcon={false}
-            message={
-              <span>
-                {intl.formatMessage({
-                  id: `编辑之后，请及时存储个人信息到个人仓库中。`,
-                })}
-                <span>
-                  <span style={{ marginRight: '4px' }}>
-                    👉 {!query.user && intl.formatMessage({ id: '参考：' })}
-                  </span>
-                  <span
-                    style={{
-                      color: `var(--primary-color, #1890ff)`,
-                      cursor: 'pointer',
-                    }}
-                    onClick={() => {
-                      const user = query.user || 'visiky';
-                      window.open(`https://github.com/${user}/${user}`);
-                    }}
-                  >
-                    {`${query.user || 'visiky'}'s resumeInfo`}
-                  </span>
-                  <span>
-                    {`（https://github.com/${query.user || 'visiky'}/${
-                      query.user || 'visiky'
-                    }/blob/${query.branch || 'master'}/resume.json）`}
-                  </span>
-                </span>
-              </span>
-            }
-            banner
-            closable
-          />
-        )}
         <div className="page">
           {config && (
             <Resume

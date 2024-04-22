@@ -9,7 +9,7 @@ import {
   CheckCircleFilled,
   ScheduleFilled,
   EnvironmentFilled,
-  HeartFilled,
+  BulbFilled,
   CrownFilled,
 } from '@ant-design/icons';
 import _ from 'lodash-es';
@@ -154,7 +154,7 @@ export const Template3: React.FC<Props> = props => {
             )}
             {profile?.positionTitle && (
               <div className="expect-job">
-                <HeartFilled style={{ color: theme.color, opacity: 0.85 }} />
+                <BulbFilled style={{ color: theme.color, opacity: 0.85 }} />
                 <span>
                   <FormattedMessage id="职位" />: {profile.positionTitle}
                 </span>
@@ -250,16 +250,27 @@ export const Template3: React.FC<Props> = props => {
                     <CheckCircleFilled
                       style={{ color: '#ffc107', marginRight: '8px' }}
                     />
-                    {skills}
+                    <b style={{ marginRight: '4px' }}>
+                      <FormattedMessage id={skill.skill_name} />{' '}
+                    </b>
+                    <ul>
+                      {skills.split('；').map((d, idx) => (
+                        <li>
+                          <p style={{ margin: '-0.5px 0 ' }}>
+                            <span style={{ marginLeft: '0px' }}>{d}</span>
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
                   </span>
-                  {skill.skill_level && (
+                  {/* {skill.skill_level && (
                     <Rate
                       allowHalf
                       disabled
                       value={skill.skill_level / 20}
                       className="skill-rate"
                     />
-                  )}
+                  )} */}
                 </div>
               ) : null;
             })}

@@ -23,7 +23,13 @@ const Page = () => {
 
   const lang = getLanguage();
   return (
-    <IntlProvider locale={lang} messages={getLocale(lang)}>
+    <IntlProvider
+      locale={lang}
+      messages={getLocale(lang)}
+      onError={error => {
+        /* Handle missing message... */
+      }}
+    >
       <Helmet>
         <title>{title}</title>
       </Helmet>
